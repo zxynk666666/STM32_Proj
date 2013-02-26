@@ -1,0 +1,17 @@
+..\obj\usart.o: ..\user\driver\src\usart.c
+..\obj\usart.o: ..\user\driver\include\usart.h
+..\obj\usart.o: ..\sys\stm32f10x.h
+..\obj\usart.o: ..\sys\core_cm3.h
+..\obj\usart.o: D:\Program_Files\HardwareDev\Keil\ARM\RV31\Inc\stdint.h
+..\obj\usart.o: ..\sys\system_stm32f10x.h
+..\obj\usart.o: ..\user\stm32f10x_conf.h
+..\obj\usart.o: ..\lib\include\stm32f10x_bkp.h
+..\obj\usart.o: ..\sys\stm32f10x.h
+..\obj\usart.o: ..\lib\include\stm32f10x_flash.h
+..\obj\usart.o: ..\lib\include\stm32f10x_gpio.h
+..\obj\usart.o: ..\lib\include\stm32f10x_pwr.h
+..\obj\usart.o: ..\lib\include\stm32f10x_rcc.h
+..\obj\usart.o: ..\lib\include\stm32f10x_rtc.h
+..\obj\usart.o: ..\lib\include\stm32f10x_tim.h
+..\obj\usart.o: ..\lib\include\stm32f10x_usart.h
+..\obj\usart.o: ..\lib\include\misc.h

@@ -1,0 +1,5 @@
+---- iButtonCheck Matches (1 in 1 files) ----
+Main.c (user):353
+		else if((iButtonCheck() == FALSE) && (LockState == OPEN))
+        {
+        	LockState = CLOSE;

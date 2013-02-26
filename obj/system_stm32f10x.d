@@ -1,0 +1,16 @@
+..\obj\system_stm32f10x.o: ..\sys\system_stm32f10x.c
+..\obj\system_stm32f10x.o: ..\sys\stm32f10x.h
+..\obj\system_stm32f10x.o: ..\sys\core_cm3.h
+..\obj\system_stm32f10x.o: D:\Program_Files\HardwareDev\Keil\ARM\RV31\Inc\stdint.h
+..\obj\system_stm32f10x.o: ..\sys\system_stm32f10x.h
+..\obj\system_stm32f10x.o: ..\user\stm32f10x_conf.h
+..\obj\system_stm32f10x.o: ..\lib\include\stm32f10x_bkp.h
+..\obj\system_stm32f10x.o: ..\sys\stm32f10x.h
+..\obj\system_stm32f10x.o: ..\lib\include\stm32f10x_flash.h
+..\obj\system_stm32f10x.o: ..\lib\include\stm32f10x_gpio.h
+..\obj\system_stm32f10x.o: ..\lib\include\stm32f10x_pwr.h
+..\obj\system_stm32f10x.o: ..\lib\include\stm32f10x_rcc.h
+..\obj\system_stm32f10x.o: ..\lib\include\stm32f10x_rtc.h
+..\obj\system_stm32f10x.o: ..\lib\include\stm32f10x_tim.h
+..\obj\system_stm32f10x.o: ..\lib\include\stm32f10x_usart.h
+..\obj\system_stm32f10x.o: ..\lib\include\misc.h

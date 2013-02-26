@@ -1,0 +1,17 @@
+..\obj\pic.o: ..\user\resoucre\pic.c
+..\obj\pic.o: ..\user\driver\include\fsmc_sram.h
+..\obj\pic.o: ..\sys\stm32f10x.h
+..\obj\pic.o: ..\sys\core_cm3.h
+..\obj\pic.o: D:\Program_Files\HardwareDev\Keil\ARM\RV31\Inc\stdint.h
+..\obj\pic.o: ..\sys\system_stm32f10x.h
+..\obj\pic.o: ..\user\stm32f10x_conf.h
+..\obj\pic.o: ..\lib\include\stm32f10x_bkp.h
+..\obj\pic.o: ..\sys\stm32f10x.h
+..\obj\pic.o: ..\lib\include\stm32f10x_flash.h
+..\obj\pic.o: ..\lib\include\stm32f10x_gpio.h
+..\obj\pic.o: ..\lib\include\stm32f10x_pwr.h
+..\obj\pic.o: ..\lib\include\stm32f10x_rcc.h
+..\obj\pic.o: ..\lib\include\stm32f10x_rtc.h
+..\obj\pic.o: ..\lib\include\stm32f10x_tim.h
+..\obj\pic.o: ..\lib\include\stm32f10x_usart.h
+..\obj\pic.o: ..\lib\include\misc.h

@@ -1,0 +1,218 @@
+/**
+  ******************************************************************************
+  * @file FSMC/SRAM/fsmc_sram.c
+  * @author  MCD Application Team
+  * @version  V3.0.0
+  * @date  04/06/2009
+  * @brief  This file provides a set of functions needed to drive the
+  *         IS61WV51216BLL SRAM memory mounted on STM3210E-EVAL board.
+  ******************************************************************************
+  * @copy
+  *
+  * THE PRESENT FIRMWARE WHICH IS FOR GUIDANCE ONLY AIMS AT PROVIDING CUSTOMERS
+  * WITH CODING INFORMATION REGARDING THEIR PRODUCTS IN ORDER FOR THEM TO SAVE
+  * TIME. AS A RESULT, STMICROELECTRONICS SHALL NOT BE HELD LIABLE FOR ANY
+  * DIRECT, INDIRECT OR CONSEQUENTIAL DAMAGES WITH RESPECT TO ANY CLAIMS ARISING
+  * FROM THE CONTENT OF SUCH FIRMWARE AND/OR THE USE MADE BY CUSTOMERS OF THE
+  * CODING INFORMATION CONTAINED HEREIN IN CONNECTION WITH THEIR PRODUCTS.
+  *
+  * <h2><center>&copy; COPYRIGHT 2009 STMicroelectronics</center></h2>
+  */
+
+/* Includes ------------------------------------------------------------------*/
+#include "Battery.h"
+#include "Display.h"
+
+/* Private define ------------------------------------------------------------*/
+
+
+/* Private typedef -----------------------------------------------------------*/
+
+
+/* Private function prototypes -----------------------------------------------*/
+
+/* Private variables ---------------------------------------------------------*/
+Battery bStatus = {0, 0, 0 , 0 , 0 , 0};
+extern unsigned char gBattery[6][4608];
+extern LCD_CoordInfo DisInfoBattery, DisInfoStateNow;
+
+/* Private functions ---------------------------------------------------------*/
+void ChargingStatus_LED_Control(uint8_t ChargingStatus)
+{
+    switch(ChargingStatus)
+    {
+    case CHARGING:
+        GPIO_WriteBit(GPIOE, GPIO_Pin_0, (BitAction)0x00);	//turn off blue LED
+        GPIO_WriteBit(GPIOD, GPIO_Pin_6, (BitAction)0x00);	//turn off green LED
+        GPIO_WriteBit(GPIOB, GPIO_Pin_5, (BitAction)0x01);	//turn on red LED
+        break;
+    case FULL:
+        GPIO_WriteBit(GPIOE, GPIO_Pin_0, (BitAction)0x00);	//turn off green LED
+        GPIO_WriteBit(GPIOB, GPIO_Pin_5, (BitAction)0x00);	//turn off red LED
+        GPIO_WriteBit(GPIOD, GPIO_Pin_6, (BitAction)0x01);	//turn on green LED
+        break;
+    case REMOVE:
+        GPIO_WriteBit(GPIOD, GPIO_Pin_6, (BitAction)0x00);	//turn off green LED
+        GPIO_WriteBit(GPIOB, GPIO_Pin_5, (BitAction)0x00);	//turn off red LED
+        GPIO_WriteBit(GPIOE, GPIO_Pin_0, (BitAction)0x01);	//turn on blue LED
+        break;
+    default:
+        GPIO_WriteBit(GPIOD, GPIO_Pin_6, (BitAction)0x00);	//turn off green LED
+        GPIO_WriteBit(GPIOB, GPIO_Pin_5, (BitAction)0x00);	//turn off red LED
+        GPIO_WriteBit(GPIOE, GPIO_Pin_0, (BitAction)0x00);	//turn off blue LED
+        break;
+    }
+}
+
+void StateCheck(void)
+{
+
+    /* 充电中 */
+    if(!GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_4) && !GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_5))           //检测PA0端口对应的按钮是否按下
+    {
+        if(bStatus.ChargingStatus != CHARGING)
+        {
+            bStatus.ChargingStatus = CHARGING;
+
+            TmrStart(1);
+            /* bStatus.ChargingStatus */
+            CleanLCD(&DisInfoStateNow, 0xffff);
+            LCD_DisplayChinese(&DisInfoStateNow, "正在充电", 0x0000, 0xffff);
+            LCD_Icon(&DisInfoBattery, gBattery[5]);
+
+            ChargingStatus_LED_Control(bStatus.ChargingStatus);
+
+            Time_Reset();
+        }
+
+    }
+    /* 电池充满 */
+    if(GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_4) && GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_5))           //检测PA0端口对应的按钮是否按下
+    {
+        if(bStatus.ChargingStatus != FULL)
+        {
+            bStatus.ChargingStatus = FULL;
+
+            if(bStatus.THH > 1)
+            {
+                bStatus.ChargingCounter++;
+            }
+            else
+            {
+                bStatus.ChargingCounter = 0;
+            }
+
+            TmrStop(1);
+            /* bStatus.ChargingStatus */
+            CleanLCD(&DisInfoStateNow, 0xffff);
+            LCD_DisplayChinese(&DisInfoStateNow, "已经充满", 0x0000, 0xffff);
+            LCD_Icon(&DisInfoBattery, gBattery[5]);
+
+            ChargingStatus_LED_Control(bStatus.ChargingStatus);
+
+            Time_Reset();
+        }
+    }
+    /* 电池移除 */
+    if(GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_4) && !GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_5))           //检测PA0端口对应的按钮是否按下
+    {
+        if(bStatus.ChargingStatus != REMOVE)
+        {
+            bStatus.ChargingStatus = REMOVE;
+
+            TmrStop(1);
+            /* bStatus.ChargingStatus */
+            CleanLCD(&DisInfoStateNow, 0xffff);
+            LCD_DisplayChinese(&DisInfoStateNow, "矿灯取走", 0x0000, 0xffff);
+            LCD_Icon(&DisInfoBattery, gBattery[0]);
+
+            ChargingStatus_LED_Control(bStatus.ChargingStatus);
+
+            Time_Reset();
+        }
+    }
+    /* 电池损坏 */
+    if(!GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_4) && GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_5))           //检测PA0端口对应的按钮是否按下
+    {
+        /*if(bStatus.ChargingStatus != BAD)
+        {
+        	bStatus.ChargingStatus = BAD;
+
+        	TmrStop(1);
+
+        	CleanLCD(&DisInfoStateNow, 0xffff);
+        	LCD_DisplayChinese(&DisInfoStateNow, "电池损坏", 0x0000, 0xffff);
+        	LCD_Icon(&DisInfoBattery, gBattery[6]);
+
+        	ChargingStatus_LED_Control(bStatus.ChargingStatus);
+
+        	Time_Reset();
+        }
+        */
+    }
+}
+
+
+
+void GetBatteryStatusTime(void)
+{
+    uint32_t TimeVar = RTC_GetCounter();
+
+    /* Compute  hours */
+    bStatus.THH = TimeVar / 3600;
+    /* Compute minutes */
+    bStatus.TMM = (TimeVar % 3600) / 60;
+    /* Compute seconds */
+    bStatus.TSS = (TimeVar % 3600) % 60;
+
+}
+
+void FaultDetection(void)
+{
+    if((bStatus.ChargingStatus == CHARGING) && (bStatus.THH > 5))
+    {
+        bStatus.FaultStatus = SHORT;
+    }
+    else if(bStatus.ChargingCounter == 3)
+    {
+        bStatus.FaultStatus = BAD;
+    }
+}
+
+void BatteryFaultAlarm()
+{
+			bStatus.ChargingStatus = BAD;
+
+			TmrStop(1);
+
+			CleanLCD(&DisInfoStateNow, 0xffff);
+			LCD_DisplayChinese(&DisInfoStateNow, "电池损坏", 0x0000, 0xffff);
+			LCD_Icon(&DisInfoBattery, gBattery[6]);
+
+			ChargingStatus_LED_Control(bStatus.ChargingStatus);
+
+			Time_Reset();
+		}
+
+void Alarm(void)
+{
+    switch(bStatus.FaultStatus)
+    {
+    case SHORT:
+		BatteryFaultAlarm();
+        break;
+    case BAD:
+        BatteryFaultAlarm();
+        break;
+    default :
+        break;
+    }
+}
+
+void BatteryManage(void)
+{
+    StateCheck();
+    GetBatteryStatusTime();
+    FaultDetection();
+    Alarm();
+}

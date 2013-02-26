@@ -1,0 +1,17 @@
+..\obj\ibutton.o: ..\user\driver\src\iButton.c
+..\obj\ibutton.o: ..\user\driver\include\iButton.h
+..\obj\ibutton.o: ..\sys\stm32f10x.h
+..\obj\ibutton.o: ..\sys\core_cm3.h
+..\obj\ibutton.o: D:\Program_Files\HardwareDev\Keil\ARM\RV31\Inc\stdint.h
+..\obj\ibutton.o: ..\sys\system_stm32f10x.h
+..\obj\ibutton.o: ..\user\stm32f10x_conf.h
+..\obj\ibutton.o: ..\lib\include\stm32f10x_bkp.h
+..\obj\ibutton.o: ..\sys\stm32f10x.h
+..\obj\ibutton.o: ..\lib\include\stm32f10x_flash.h
+..\obj\ibutton.o: ..\lib\include\stm32f10x_gpio.h
+..\obj\ibutton.o: ..\lib\include\stm32f10x_pwr.h
+..\obj\ibutton.o: ..\lib\include\stm32f10x_rcc.h
+..\obj\ibutton.o: ..\lib\include\stm32f10x_rtc.h
+..\obj\ibutton.o: ..\lib\include\stm32f10x_tim.h
+..\obj\ibutton.o: ..\lib\include\stm32f10x_usart.h
+..\obj\ibutton.o: ..\lib\include\misc.h
