@@ -7,24 +7,6 @@ F:\STM32_Project_Template_New_LCD\proj\STM32_Project_Template.uvproj
 Project File Date:  07/16/2012
 
 <h2>Output:</h2>
-Load "..\\obj\\STM32_Project_Template.AXF" 
-Build target 'STM32F103VET6'
-compiling main.c...
-..\user\include.h(12): warning:  #1-D: last line of file ends without a newline
-..\user\function\include\Battery.h(54): warning:  #1-D: last line of file ends without a newline
-..\user\main.c(112): warning:  #223-D: function "LCD_DisplayChinese" declared implicitly
-..\user\main.c(145): warning:  #223-D: function "CloseBackLight" declared implicitly
-..\user\main.c(242): error:  #20: identifier "i" is undefined
-..\user\main.c(313): warning:  #223-D: function "InitBatteryStatus" declared implicitly
-..\user\main.c(320): warning:  #223-D: function "GetKeyID_From_Flash" declared implicitly
-..\user\main.c(326): warning:  #223-D: function "LCD_BackgroundUpdata" declared implicitly
-..\user\main.c(328): warning:  #223-D: function "LCD_DisplayFlashPic" declared implicitly
-..\user\main.c(330): warning:  #223-D: function "LCD_DisplayCharFromFlash" declared implicitly
-..\user\main.c(336): warning:  #223-D: function "LCD_DisplayChinese" declared implicitly
-..\user\main.c(356): warning:  #223-D: function "PersonalInfoMgt" declared implicitly
-..\user\main.c(361): warning:  #223-D: function "OpenBackLight" declared implicitly
-..\user\main.c(374): warning:  #223-D: function "BatteryManage" declared implicitly
-Target not created
 Build target 'STM32F103VET6'
 compiling main.c...
 ..\user\include.h(12): warning:  #1-D: last line of file ends without a newline
@@ -37,67 +19,22 @@ compiling main.c...
 ..\user\main.c(330): warning:  #223-D: function "LCD_DisplayFlashPic" declared implicitly
 ..\user\main.c(332): warning:  #223-D: function "LCD_DisplayCharFromFlash" declared implicitly
 ..\user\main.c(338): warning:  #223-D: function "LCD_DisplayChinese" declared implicitly
-..\user\main.c(358): warning:  #223-D: function "PersonalInfoMgt" declared implicitly
-..\user\main.c(363): warning:  #223-D: function "OpenBackLight" declared implicitly
-..\user\main.c(376): warning:  #223-D: function "BatteryManage" declared implicitly
-linking...
-Program Size: Code=8984 RO-data=52288 RW-data=29012 ZI-data=5036  
-FromELF: creating hex file...
-"..\obj\STM32_Project_Template.axf" - 0 Error(s), 13 Warning(s).
-Load "..\\obj\\STM32_Project_Template.AXF" 
-Load "..\\obj\\STM32_Project_Template.AXF" 
-Build target 'STM32F103VET6'
-compiling main.c...
-..\user\include.h(12): warning:  #1-D: last line of file ends without a newline
+..\user\main.c(349): warning:  #223-D: function "PersonalInfoMgt" declared implicitly
+..\user\main.c(354): warning:  #223-D: function "OpenBackLight" declared implicitly
+..\user\main.c(367): warning:  #223-D: function "BatteryManage" declared implicitly
+compiling Battery.c...
 ..\user\function\include\Battery.h(54): warning:  #1-D: last line of file ends without a newline
-..\user\main.c(112): warning:  #223-D: function "LCD_DisplayChinese" declared implicitly
-..\user\main.c(145): warning:  #223-D: function "CloseBackLight" declared implicitly
-..\user\main.c(315): warning:  #223-D: function "InitBatteryStatus" declared implicitly
-..\user\main.c(322): warning:  #223-D: function "GetKeyID_From_Flash" declared implicitly
-..\user\main.c(328): warning:  #223-D: function "LCD_BackgroundUpdata" declared implicitly
-..\user\main.c(330): warning:  #223-D: function "LCD_DisplayFlashPic" declared implicitly
-..\user\main.c(332): warning:  #223-D: function "LCD_DisplayCharFromFlash" declared implicitly
-..\user\main.c(338): warning:  #223-D: function "LCD_DisplayChinese" declared implicitly
-..\user\main.c(358): warning:  #223-D: function "PersonalInfoMgt" declared implicitly
-..\user\main.c(363): warning:  #223-D: function "OpenBackLight" declared implicitly
-..\user\main.c(376): warning:  #223-D: function "BatteryManage" declared implicitly
+..\user\function\src\Battery.c(48): warning:  #1294-D: Old-style function Blue_LED_Toggle
+..\user\function\src\Battery.c(92): warning:  #223-D: function "TmrStop" declared implicitly
+..\user\function\src\Battery.c(93): warning:  #223-D: function "TmrStart" declared implicitly
+..\user\function\src\Battery.c(94): warning:  #223-D: function "LCD_DisplayChinese" declared implicitly
+..\user\function\src\Battery.c(159): warning:  #223-D: function "Time_Reset" declared implicitly
+..\user\function\src\Battery.c(177): warning:  #223-D: function "Time_Reset" declared implicitly
+..\user\function\src\Battery.c(190): warning:  #223-D: function "Time_Reset" declared implicitly
+..\user\function\src\Battery.c(228): warning:  #223-D: function "TmrStop" declared implicitly
+..\user\function\src\Battery.c(229): warning:  #223-D: function "TmrStart" declared implicitly
+..\user\function\src\Battery.c(245): warning:  #1-D: last line of file ends without a newline
 linking...
 Program Size: Code=8996 RO-data=52288 RW-data=29012 ZI-data=5036  
 FromELF: creating hex file...
-"..\obj\STM32_Project_Template.axf" - 0 Error(s), 13 Warning(s).
-Load "..\\obj\\STM32_Project_Template.AXF" 
-Build target 'STM32F103VET6'
-compiling Management.c...
-..\user\function\src\Management.c(173): warning:  #223-D: function "CleanCharFromLCD" declared implicitly
-..\user\function\src\Management.c(192): warning:  #223-D: function "LCD_DisplayFlashPic" declared implicitly
-..\user\function\src\Management.c(195): warning:  #223-D: function "LCD_DisplayCharFromFlash" declared implicitly
-linking...
-Program Size: Code=8992 RO-data=52288 RW-data=29012 ZI-data=5036  
-FromELF: creating hex file...
-"..\obj\STM32_Project_Template.axf" - 0 Error(s), 3 Warning(s).
-Build target 'STM32F103VET6'
-linking...
-Program Size: Code=8992 RO-data=52288 RW-data=29012 ZI-data=5036  
-FromELF: creating hex file...
-"..\obj\STM32_Project_Template.axf" - 0 Error(s), 0 Warning(s).
-Load "..\\obj\\STM32_Project_Template.AXF" 
-Build target 'STM32F103VET6'
-compiling Management.c...
-..\user\function\src\Management.c(173): warning:  #223-D: function "CleanCharFromLCD" declared implicitly
-..\user\function\src\Management.c(192): warning:  #223-D: function "LCD_DisplayFlashPic" declared implicitly
-..\user\function\src\Management.c(195): warning:  #223-D: function "LCD_DisplayCharFromFlash" declared implicitly
-linking...
-Program Size: Code=8992 RO-data=52288 RW-data=29012 ZI-data=5036  
-FromELF: creating hex file...
-"..\obj\STM32_Project_Template.axf" - 0 Error(s), 3 Warning(s).
-Load "..\\obj\\STM32_Project_Template.AXF" 
-Build target 'STM32F103VET6'
-compiling Management.c...
-..\user\function\src\Management.c(173): warning:  #223-D: function "CleanCharFromLCD" declared implicitly
-..\user\function\src\Management.c(192): warning:  #223-D: function "LCD_DisplayFlashPic" declared implicitly
-..\user\function\src\Management.c(195): warning:  #223-D: function "LCD_DisplayCharFromFlash" declared implicitly
-linking...
-Program Size: Code=8996 RO-data=52288 RW-data=29012 ZI-data=5036  
-FromELF: creating hex file...
-"..\obj\STM32_Project_Template.axf" - 0 Error(s), 3 Warning(s).
-Load "..\\obj\\STM32_Project_Template.AXF" 
+"..\obj\STM32_Project_Template.axf" - 0 Error(s), 24 Warning(s).

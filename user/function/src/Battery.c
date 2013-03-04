@@ -179,7 +179,7 @@ void StateCheck(void)
 
     }
     /* 电池充满 */
-    if(GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_4) && !GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_5))           //检测PA0端口对应的按钮是否按下
+    if(GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_5) && !GPIO_ReadInputDataBit(GPIOE, GPIO_Pin_4))           //检测PA0端口对应的按钮是否按下
     {
         if(bStatus.ChargingStatus != FULL)
         {

@@ -47,7 +47,7 @@
 ### ADS-LD Output File: '..\obj\STM32_Project_Template.axf'
 ### ADS-LD Command File: '..\obj\STM32_Project_Template.lnp'
 ### Checking for dirty Components...
-### Creating CmdFile '..\obj\STM32_Project_Template.lnp', Handle=0x000005F8
+### Creating CmdFile '..\obj\STM32_Project_Template.lnp', Handle=0x000001B8
 ### Writing '.lnp' file
 ### ADS-LD Command file '..\obj\STM32_Project_Template.lnp' is ready.
 ### ADS-LD: About to start ADS-LD Thread.
